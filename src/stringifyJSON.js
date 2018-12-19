@@ -9,8 +9,6 @@ var stringifyJSON = function(obj) {
     // check first for null / undefined / etc and return
     if (obj === null) {
         return 'null';
-    } else if (obj === undefined) {
-        return undefined;
     } else if (typeof obj === 'number') {
         return obj.toString();
     } else if (typeof obj === 'string') {
@@ -49,7 +47,7 @@ var stringifyJSON = function(obj) {
                     myJSON += `"${p}"` + ':' + `"${obj[p]}"` + ','; // the JSON representation of this value using p and obj[p]
                 } else if (typeof obj[p] === null) {
                     myJSON += `"${p}"` + ':' + 'null' + ',';
-                } else if (typeof obj[p] === 'number' || obj[p] === undefined || typeof obj[p] === 'boolean') {
+                } else if (typeof obj[p] === 'number' || typeof obj[p] === 'boolean') {
                     myJSON += `"${p}"` + ':' + obj[p] + ','; // the JSON representation of this value using p and obj[p]
                 } else if (typeof obj[p] === 'object' && !Array.isArray(obj[p])) { // test for nested object) {
 
